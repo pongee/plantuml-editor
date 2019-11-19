@@ -5,8 +5,9 @@ module.exports = {
         app: './web/index.jsx',
     },
     output: {
-        path: path.resolve(__dirname, 'static'),
-        filename: 'index.js'
+        path: path.resolve(__dirname, 'web/build'),
+        filename: 'index.js',
+        publicPath: '/build/'
     },
     module: {
         rules: [
