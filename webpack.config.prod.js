@@ -3,6 +3,6 @@ const commonConfig = require('./webpack.config.js');
 
 module.exports = merge(commonConfig,
     {
-        mode: 'producation',
+        mode: 'production',
     }
 );
