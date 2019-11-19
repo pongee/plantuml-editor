@@ -16,4 +16,4 @@ deploy:
     on:
       branch: master
       repo: pongee/plantuml-editor
-    local_dir: docs
+    local_dir: web
