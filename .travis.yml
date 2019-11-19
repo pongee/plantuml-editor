@@ -10,6 +10,7 @@ cache:
     - node_modules # NPM packages
 deploy:
   - provider: pages
+    edge: true
     skip_cleanup: true
     github_token: $GITHUB_TOKEN
     on:
