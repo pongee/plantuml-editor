@@ -5,7 +5,7 @@ module.exports = {
         app: './web/index.jsx',
     },
     output: {
-        path: path.resolve(__dirname, 'build'),
+        path: path.resolve(__dirname, 'static'),
         filename: 'index.js'
     },
     module: {
