@@ -8,3 +8,11 @@ script:
 cache:
   directories:
     - node_modules # NPM packages
+deploy:
+  - provider: pages
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN
+    on:
+      branch: master
+      repo: pongee/plantuml-editor
+    local_dir: docs
