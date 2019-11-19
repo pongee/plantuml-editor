@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+  - "11.3"
+install:
+  - yarn install
+script:
+  - yarn run build-prod
+cache:
+  directories:
+    - node_modules # NPM packages
