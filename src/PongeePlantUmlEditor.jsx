@@ -1,8 +1,9 @@
 'use strict';
 
 import React from 'react';
-import PongeePlantUmlOutput from './PongeePlantUmlOutput';
-import PongeePlantUmlSource from './PongeePlantUmlSource';
+import PlantUmlOutput from './PlantUmlOutput';
+import PlantUmlSource from './PlantUmlSource';
+import TemplateSelector from './TemplateSelector';
 
 export default class PongeePlantUmlEditor extends React.Component {
     static defaultProps = {
@@ -13,19 +14,29 @@ export default class PongeePlantUmlEditor extends React.Component {
         super(props);
 
         this.state = {
-            text: '',
+            sourceText: '',
+            outputText: '',
         };
 
         this.onSourceValueChange = this.onSourceValueChange.bind(this);
+        this.onSelectValueChange = this.onSelectValueChange.bind(this);
     }
 
-    onSourceValueChange(text) {
+    onSourceValueChange = text => {
         this.setState({
-            text: text,
+            sourceText: text,
+            outputText: text,
         });
-    }
+    };
 
-    render() {
+    onSelectValueChange = text => {
+        this.setState({
+            sourceText: text,
+            outputText: text,
+        });
+    };
+
+    render = () => {
         const PageStyle = {
             display: 'grid',
             gridTemplateColumns: '50% 50%',
@@ -33,16 +44,29 @@ export default class PongeePlantUmlEditor extends React.Component {
             overflow: 'hidden',
         };
 
+        const MenuStyle = {
+            backgroundColor: '#90caf9',
+            height: '30px',
+        };
+
         return (
-            <div style={PageStyle}>
-                <PongeePlantUmlSource
-                    onValueChange={this.onSourceValueChange}
-                />
-                <PongeePlantUmlOutput
-                    baseUri={this.props.baseUri}
-                    text={this.state.text}
-                />
+            <div>
+                <div style={MenuStyle}>
+                    <TemplateSelector
+                        onSelectValueChange={this.onSelectValueChange}
+                    />
+                </div>
+                <div style={PageStyle}>
+                    <PlantUmlSource
+                        onValueChange={this.onSourceValueChange}
+                        text={this.state.sourceText}
+                    />
+                    <PlantUmlOutput
+                        baseUri={this.props.baseUri}
+                        text={this.state.outputText}
+                    />
+                </div>
             </div>
         );
-    }
+    };
 }

@@ -1,10 +1,10 @@
 'use strict';
 
 import React from 'react';
-import PlantumlEncoder from 'plantuml-encoder';
+import PlantUmlEncoder from 'plantuml-encoder';
 import styled from 'styled-components';
 
-export default class PongeePlantUmlOutput extends React.Component {
+export default class PlantUmlOutput extends React.Component {
     constructor(props) {
         super(props);
 
@@ -15,11 +15,11 @@ export default class PongeePlantUmlOutput extends React.Component {
         this.tabChange = this.tabChange.bind(this);
     }
 
-    tabChange(event) {
+    tabChange = event => {
         this.setState({
             tab: event.target.dataset.id,
         });
-    }
+    };
 
     render() {
         function PlantumlImage(props) {
@@ -27,7 +27,7 @@ export default class PongeePlantUmlOutput extends React.Component {
 
             if (text && props.type === props.tab) {
                 return <img
-                    src={ props.baseUri + '/' + props.type + '/' + PlantumlEncoder.encode(props.text)}
+                    src={ props.baseUri + '/' + props.type + '/' + PlantUmlEncoder.encode(props.text)}
                     alt=''
                 />;
             }

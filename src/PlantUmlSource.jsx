@@ -5,26 +5,18 @@ import AceEditor from 'react-ace';
 import 'ace-builds/src-noconflict/mode-jsx';
 import 'ace-builds/src-noconflict/theme-monokai';
 
-export default class PongeePlantUmlSource extends React.Component {
+export default class PlantUmlSource extends React.Component {
     constructor(props) {
         super(props);
-
-        this.state = {
-            value: '',
-        };
 
         this.onValueChange = this.onValueChange.bind(this);
     }
 
-    onValueChange(text) {
-        this.setState({
-            value: text
-        });
-
+    onValueChange = text => {
         this.props.onValueChange(text);
-    }
+    };
 
-    render() {
+    render = () => {
         const AceEditorStyle = {
             height: '100vh',
             minHeight: '100%',
@@ -38,7 +30,7 @@ export default class PongeePlantUmlSource extends React.Component {
                     mode='jsx'
                     theme='monokai'
                     fontSize={12}
-                    value={this.state.value}
+                    value={this.props.text}
                     debounceChangePeriod={1000}
                     onLoad={this.load}
                     onChange={this.onValueChange}
@@ -55,5 +47,5 @@ export default class PongeePlantUmlSource extends React.Component {
                 />
             </div>
         );
-    }
+    };
 }
