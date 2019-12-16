@@ -1,3 +1,5 @@
+'use strict';
+
 export default {
     sequence: "@startuml\n" +
         "\n" +
