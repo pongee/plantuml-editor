@@ -26,7 +26,8 @@ jobs:
       - run: ls -la
       - gh-pages/deploy:
           setup-git: true
-          branch: dev
+          branch: gh-pages-dev
+          build-dir: web
           ssh-fingerprints: <fingerprint>
 
 # Invoke jobs via workflows
