@@ -24,14 +24,11 @@ jobs:
           command: "yarn run build-prod"
   deploy_gh_pages:
     executor: gh-pages/default
+    requires:
+      - build_plantuml_editor
     steps:
+      - run: ls -la
       - checkout
-      - run:
-          name: "Install packages"
-          command: "yarn install"
-      - run:
-          name: "Prod build"
-          command: "yarn run build-prod"
       - run: ls -la
       - gh-pages/deploy:
           setup-git: true
@@ -44,6 +41,4 @@ workflows:
   build-editor:
     jobs:
       - build_plantuml_editor
-      - deploy_gh_pages:
-          requires:
-            - build_plantuml_editor
+      - deploy_gh_pages
