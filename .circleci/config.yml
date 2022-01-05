@@ -29,13 +29,10 @@ workflows:
   build-editor:
     jobs:
       - build_plantuml_editor
-      - deploy_github_pages:
-          executor: gh-pages/default
-          jobs:
-            - build_plantuml_editor
-            - run: yarn build-prod
-            - gh-pages/deploy:
-                setup-git: true
-                ssh-fingerprints: <fingerprint>
-                branch: dev
-                build-dir: dist
+      - github_pages_deploy
+          requires:
+             - build_plantuml_editor
+        setup-git: true
+        ssh-fingerprints: <fingerprint>
+        branch: dev
+        build-dir: dist
