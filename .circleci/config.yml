@@ -28,7 +28,7 @@ jobs:
           setup-git: true
           branch: gh-pages-dev
           build-dir: web
-          ssh-fingerprints: e2:2f:c3:77:ac:21:ad:1a:19:bf:94:cd:26:6c:99:e5
+          ssh-fingerprints: "e2:2f:c3:77:ac:21:ad:1a:19:bf:94:cd:26:6c:99:e5"
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
