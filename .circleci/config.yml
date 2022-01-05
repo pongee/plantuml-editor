@@ -24,8 +24,6 @@ jobs:
           command: "yarn run build-prod"
   deploy_gh_pages:
     executor: gh-pages/default
-    requires:
-      - build_plantuml_editor
     steps:
       - run: ls -la
       - checkout
