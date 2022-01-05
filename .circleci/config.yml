@@ -26,7 +26,7 @@ jobs:
       - run: ls -la
       - gh-pages/deploy:
           setup-git: true
-          branch: gh-pages-dev
+          branch: gh-pages
           build-dir: web
           ssh-fingerprints: "62:84:9f:fe:b0:fa:6b:20:82:25:52:f6:75:43:da:62"
 
