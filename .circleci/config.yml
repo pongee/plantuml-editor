@@ -29,10 +29,10 @@ workflows:
   build-editor:
     jobs:
       - build_plantuml_editor
-      - github_pages_deploy
+      - github_pages_deploy:
           requires:
              - build_plantuml_editor
-        setup-git: true
-        ssh-fingerprints: <fingerprint>
-        branch: dev
-        build-dir: dist
+          setup-git: true
+          ssh-fingerprints: <fingerprint>
+          branch: dev
+          build-dir: dist
