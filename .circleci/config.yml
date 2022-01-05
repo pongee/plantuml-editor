@@ -27,6 +27,7 @@ jobs:
     steps:
       - gh-pages/deploy:
           setup-git: true
+          branch: dev
           ssh-fingerprints: <fingerprint>
 
 # Invoke jobs via workflows
