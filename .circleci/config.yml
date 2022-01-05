@@ -22,6 +22,14 @@ jobs:
       - run:
           name: "Prod build"
           command: "yarn run build-prod"
+  deploy_gh_pages:
+    executor: gh-pages/default
+    steps:
+      - checkout
+      - run: ./build.sh
+      - gh-pages/deploy:
+          setup-git: true
+          ssh-fingerprints: <fingerprint>
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
@@ -29,10 +37,6 @@ workflows:
   build-editor:
     jobs:
       - build_plantuml_editor
-      - github_pages_deploy:
+      - deploy_gh_pages:
           requires:
-             - build_plantuml_editor
-          setup-git: true
-          ssh-fingerprints: <fingerprint>
-          branch: dev
-          build-dir: dist
+            - build_plantuml_editor
