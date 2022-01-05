@@ -25,6 +25,13 @@ jobs:
   deploy_gh_pages:
     executor: gh-pages/default
     steps:
+      - checkout
+      - run:
+          name: "Install packages"
+          command: "yarn install"
+      - run:
+          name: "Prod build"
+          command: "yarn run build-prod"
       - run: ls -la
       - gh-pages/deploy:
           setup-git: true
